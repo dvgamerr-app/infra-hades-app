@@ -22,7 +22,7 @@
     "node": "^14.18.0 || >=16.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.2.0",
+    "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.2.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.1",
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
