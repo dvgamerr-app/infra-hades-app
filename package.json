@@ -1,74 +1,44 @@
 {
   "name": "infra-hades",
   "version": "0.1.0",
-  "main": "dist-electron/main/index.js",
+  "main": "./out/main/index.js",
   "description": "Instantly manage and monitor Kubernetes from your Desktop.",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
   "license": "MIT",
   "private": true,
-  "scripts": {
-    "dev": "vite",
-    "lint": "pnpm lint:js && pnpm lint:style && pnpm lint:prettier",
-    "lint:fix": "pnpm lint:js --fix && pnpm lint:style --fix && pnpm lint:prettier --write",
-    "lint:js": "npx eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore",
-    "lint:style": "stylelint \"**/*.{css,scss,sass,vue,html}\" --ignore-path .gitignore --custom-syntax postcss-html postcss-scss",
-    "lint:prettier": "npx prettier --check .",
-    "build:vite": "vite build && mv ./dist/assets/*.svg ./dist/ >nul",
-    "build": "vue-tsc --noEmit && npx build:vite && electron-builder",
-    "prepare": "husky install"
-  },
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
   },
-  "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/free-regular-svg-icons": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/vue-fontawesome": "^3.0.5",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
-    "@vitejs/plugin-vue": "^4.5.0",
-    "electron": "^27.1.2",
-    "electron-builder": "^24.6.4",
-    "eslint": "^8.54.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "eslint-plugin-vue": "^9.18.1",
-    "postcss-html": "^1.5.0",
-    "postcss-scss": "^4.0.9",
-    "prettier": "^3.1.0",
-    "sass": "^1.69.5",
-    "stylelint": "^15.11.0",
-    "stylelint-config-recommended-scss": "^13.1.0",
-    "typescript": "^5.3.2",
-    "vite": "^5.0.2",
-    "vite-plugin-electron": "^0.15.4",
-    "vite-plugin-electron-renderer": "^0.14.5",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5",
-    "vue-tsc": "^1.8.22"
+  "scripts": {
+    "format": "prettier --plugin prettier-plugin-svelte --write .",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev -w",
+    "build": "electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:win": "npm run build && electron-builder --win --config",
+    "build:mac": "npm run build && electron-builder --mac --config",
+    "build:linux": "npm run build && electron-builder --linux --config"
   },
-  "lint-staged": {
-    "**/*.{js,ts,vue}": "eslint --ignore-path .gitignore",
-    "**/*.{css,scss,sass,html,vue}": "stylelint --ignore-path .gitignore --custom-syntax postcss-html postcss-scss",
-    "**.*": "prettier --check"
-  },
-  "debug": {
-    "env": {
-      "VITE_DEV_SERVER_URL": "http://127.0.0.1:3344"
-    }
-  },
-  "keywords": [
-    "electron",
-    "rollup",
-    "vite",
-    "vue3",
-    "vue"
-  ],
   "dependencies": {
-    "dayjs": "^1.11.10",
+    "@electron-toolkit/preload": "^2.0.0",
+    "@electron-toolkit/utils": "^2.0.1",
+    "electron-updater": "^6.1.4"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config": "^1.0.1",
+    "@electron-toolkit/eslint-config-prettier": "^1.0.1",
+    "@sveltejs/vite-plugin-svelte": "^2.5.3",
+    "electron": "^25.9.6",
+    "electron-builder": "^24.6.4",
     "electron-log": "^5.0.1",
     "electron-settings": "^4.0.2",
-    "gaxios": "^6.1.1",
-    "yaml": "^2.3.4"
+    "electron-vite": "^1.0.29",
+    "eslint": "^8.54.0",
+    "eslint-plugin-svelte": "^2.35.1",
+    "prettier": "^3.1.0",
+    "prettier-plugin-svelte": "^3.1.2",
+    "svelte": "^4.2.7",
+    "vite": "^4.5.0"
   }
 }

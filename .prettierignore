@@ -1,11 +1,6 @@
-dist/*
-dist-electron/*
-release/*
-
-**/target/
-**/pkg/
-
-*.woff2
-*.json5
-
-*-lock.yaml
+out
+dist
+pnpm-lock.yaml
+LICENSE.md
+tsconfig.json
+tsconfig.*.json
