@@ -5,7 +5,7 @@ import { app } from 'electron'
 import settings from 'electron-settings'
 import yaml from 'yaml'
 
-interface Configuration {
+export interface Configuration {
   config: Global.AppSetting
   user: Global.UserSetting
 }

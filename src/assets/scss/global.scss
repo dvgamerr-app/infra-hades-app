@@ -1,19 +1,19 @@
-@import 'custom-variable';
+// @import 'custom-variable';
 
-// Configuration
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/variables';
-@import 'bootstrap/scss/maps';
+// // Configuration
+// @import 'bootstrap/scss/functions';
+// @import 'bootstrap/scss/variables';
+// @import 'bootstrap/scss/maps';
 
-// Mixins
-@import 'bootstrap/scss/mixins';
-@import 'bootstrap/scss/vendor/rfs';
-@import 'bootstrap/scss/utilities';
-@import 'bootstrap/scss/utilities/api';
+// // Mixins
+// @import 'bootstrap/scss/mixins';
+// @import 'bootstrap/scss/vendor/rfs';
+// @import 'bootstrap/scss/utilities';
+// @import 'bootstrap/scss/utilities/api';
 
-// Grid
-@import 'bootstrap/scss/containers';
-@import 'bootstrap/scss/grid';
+// // Grid
+// @import 'bootstrap/scss/containers';
+// @import 'bootstrap/scss/grid';
 
 body {
   user-select: none;

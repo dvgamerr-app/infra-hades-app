@@ -11,7 +11,7 @@ const resizable = ref('16em')
 <template>
   <header class="title">
     <div class="bar d-flex position-relative align-items-stretch">
-      <a class="menu d-center-flex" @click.prevent="ipcRenderer.invoke('open-menu')">
+      <a class="menu d-center-flex" @click.prevent="ipcRenderer.invoke('APP-OPEN-MENU')">
         <div class="logo-menu" />
       </a>
       <div class="logo d-flex align-items-center justify-content-center flex-fill">

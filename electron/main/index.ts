@@ -1,4 +1,5 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
+import log from 'electron-log'
 import { release, arch, platform } from 'os'
 import { join } from 'path'
 import { name } from '../../package.json'
@@ -6,6 +7,12 @@ import { initilizeApp } from '../user-config'
 import settings from 'electron-settings'
 
 import { onWindowPositionEvent } from './event/settings'
+import ipcEvent from './event/ipc-main'
+
+log.initialize({ preload: true })
+
+// log.transports.file.level = false;
+// log.transports.log.level = false;
 
 // The built directory structure
 //
@@ -22,8 +29,8 @@ process.env.DIST = join(process.env.DIST_ELECTRON, '../dist')
 process.env.PUBLIC = app.isPackaged ? process.env.DIST : join(process.env.DIST_ELECTRON, '../public')
 
 // setInterval(() => {
-//   console.log('process:', process.cpuUsage())
-//   console.log('process:', process.memoryUsage())
+//   log.log('process:', process.cpuUsage())
+//   log.log('process:', process.memoryUsage())
 // }, 1000)
 
 // Disable GPU Acceleration for Windows 7
@@ -50,14 +57,16 @@ const indexHtml = join(process.env.DIST, 'index.html')
 
 async function createWindow() {
   const { config, user } = await initilizeApp()
-  const lasted = settings.getSync('position') as any as SettingPosition
+  const lasted: SettingPosition = (settings.getSync('position') as any) || {}
 
-  console.log('os:', {
-    arch: arch(),
-    platform: platform(),
-    release: release(),
+  log.info({
+    os: {
+      arch: arch(),
+      platform: platform(),
+      release: release(),
+    },
   })
-  console.log(' pos:', lasted)
+  log.debug({ position: lasted })
 
   win = new BrowserWindow({
     title: name,
@@ -107,10 +116,19 @@ async function createWindow() {
   win.on('maximize', onWindowPositionEvent(win))
   win.on('moved', onWindowPositionEvent(win))
 
-  ipcMain.handle('init-config', initilizeApp)
-  ipcMain.handle('open-menu', () => {
-    console.log('backend')
+  ipcMain.handle('APP-RELOAD', async (e, ...args) => {
+    win.reload()
   })
+
+  const ipcLog = log.scope('IPC')
+  for (const eventName in ipcEvent) {
+    ipcMain.handle(eventName, async (e, ...args) => {
+      ipcLog.verbose(eventName, args)
+      const result = await ipcEvent[eventName](e, ...args)
+      ipcLog.verbose({ eventName, args, result })
+      return result
+    })
+  }
 
   if (app.isPackaged) {
     win.loadFile(indexHtml)

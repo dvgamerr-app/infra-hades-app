@@ -1,6 +1,3 @@
-// @ts-ignore
-import init from 'hades'
-
 import { ipcRenderer } from 'electron'
 
 import { createApp } from 'vue'
@@ -22,10 +19,9 @@ const initMsg = async (msg: string) => {
 
 initMsg('Initialize Hades')
 console.time('Initialize')
-Promise.all([init(), ipcRenderer.invoke('init-config')])
-  .then(([, { user }]) => {
+Promise.all([ipcRenderer.invoke('INIT-CONFIG')])
+  .then(([{ user }]) => {
     console.timeEnd('Initialize')
-    console.log({ user })
     initMsg('Starting')
     createApp(AppLayout)
       .use(router)
