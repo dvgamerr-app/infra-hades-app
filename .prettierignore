@@ -7,3 +7,5 @@ release/*
 
 *.woff2
 *.json5
+
+*-lock.yaml
