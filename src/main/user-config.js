@@ -5,7 +5,6 @@ import { app } from 'electron'
 import settings from 'electron-settings'
 import yaml from 'yaml'
 
-
 const user = {
   textColor: '#e8e8e8',
   backgroundColor: '#1c1c1f',
@@ -13,14 +12,14 @@ const user = {
     activeBackground: '#1c1c1f',
     activeForeground: '#004fe9',
     inactiveBackground: '#18181a',
-    inactiveForeground: '#8f8f8f',
-  },
+    inactiveForeground: '#8f8f8f'
+  }
 }
 
 const config = {
   config: join(app.getPath('home'), '.infra'),
   width: 1160,
-  height: 725,
+  height: 725
 }
 
 if (!existsSync(config.config)) mkdirSync(config.config)
@@ -29,7 +28,7 @@ settings.configure({
   dir: config.config,
   fileName: 'settings.json',
   numSpaces: 2,
-  prettify: true,
+  prettify: true
 })
 
 export const initilizeApp = async () => {

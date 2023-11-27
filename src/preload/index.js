@@ -2,10 +2,7 @@ import { ipcRenderer, contextBridge } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import { domReady, createPreloading } from './dom'
 
-Promise.all([
-  domReady(),
-  ipcRenderer.invoke('INIT-CONFIG')
-]).then(config => {
+Promise.all([domReady(), ipcRenderer.invoke('INIT-CONFIG')]).then((config) => {
   const preload = createPreloading(config[1].user)
   const loading = document.querySelector('#loading .text')
 
@@ -13,23 +10,22 @@ Promise.all([
   const api = {
     initConfig: () => ipcRenderer.invoke('INIT-CONFIG'),
     preloadRemove: () => preload.remove(),
-    preloadInitText: (msg) => loading.textContent = msg
+    preloadInitText: (msg) => (loading.textContent = msg)
   }
 
   if (process.contextIsolated) {
     try {
       contextBridge.exposeInMainWorld('electron', electronAPI)
       contextBridge.exposeInMainWorld('api', api)
-    } catch (error) {e
-      console.error(error)
+    } catch (ex) {
+      console.error(ex)
     }
   } else {
     window.Electron = electronAPI
     window.api = api
   }
-  preload.append()
+  // preload.add()
 })
-
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise

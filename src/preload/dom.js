@@ -22,10 +22,10 @@ export const safeDOM = {
     if (Array.from(parent.children).find((e) => e === child)) {
       return parent.removeChild(child)
     }
-  },
+  }
 }
 
-export const createPreloading = user => {
+export const createPreloading = (user) => {
   const oStyle = document.createElement('style')
   const oDiv = document.createElement('div')
 
@@ -33,7 +33,6 @@ export const createPreloading = user => {
   // const rootTheme: string = ''
   /**
    * https://tobiasahlin.com/spinkit
-   * https://connoratherton.com/loaders
    * https://projects.lukehaas.me/css-loaders
    * https://matejkustec.github.io/SpinThatShit
    */
@@ -140,7 +139,7 @@ body.inactive {
 `
 
   return {
-    append() {
+    add() {
       safeDOM.append(document.head, oStyle)
       safeDOM.append(document.body, oDiv)
       document.addEventListener('readystatechange', this.remove)
@@ -150,6 +149,6 @@ body.inactive {
       setTimeout(() => {
         safeDOM.remove(document.body, oDiv)
       }, 300)
-    },
+    }
   }
 }

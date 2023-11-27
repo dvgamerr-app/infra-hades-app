@@ -16,7 +16,7 @@ const eventSetPosition = (mainWindow) => {
     width: winWidth,
     height: winHeight,
     x: winX,
-    y: winY,
+    y: winY
   }
 
   console.log(config)
@@ -27,4 +27,5 @@ const eventSetPosition = (mainWindow) => {
   }
 }
 
-export const onWindowPositionEvent = (mainWindow) => debounce(() => eventSetPosition(mainWindow), 200)
+export const onWindowPositionEvent = (mainWindow) =>
+  debounce(() => eventSetPosition(mainWindow), 200)

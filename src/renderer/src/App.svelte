@@ -2,8 +2,7 @@
   import icons from './assets/icons.svg'
   import Versions from './components/Versions.svelte'
 
-
-  window.api.preloadRemove()
+  // window.api.preloadRemove()
 </script>
 
 <div class="container">

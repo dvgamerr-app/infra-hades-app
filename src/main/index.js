@@ -29,7 +29,7 @@ async function createWindow() {
   const lasted = settings.getSync('position') || {}
 
   log.info({
-    os: { arch: arch(), platform: platform(), release: release() },
+    os: { arch: arch(), platform: platform(), release: release() }
   })
   log.debug({ position: lasted })
 
@@ -45,7 +45,7 @@ async function createWindow() {
     backgroundColor: user.titlebar.activeBackground,
     titleBarOverlay: {
       color: user.titlebar.activeBackground,
-      symbolColor: user.titlebar.activeForeground,
+      symbolColor: user.titlebar.activeForeground
     },
     autoHideMenuBar: true,
     minWidth: config.width,
@@ -59,13 +59,13 @@ async function createWindow() {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false,
       nodeIntegration: true,
-      contextIsolation: false,
+      contextIsolation: false
     }
   })
   if (lasted.maximized) mainWindow.maximize()
 
-  ipcMain.handle('APP-RELOAD', async (e, ...args) => {
-    win.reload()
+  ipcMain.handle('APP-RELOAD', async () => {
+    mainWindow.reload()
   })
 
   const ipcLog = log.scope('IPC')
@@ -81,14 +81,14 @@ async function createWindow() {
   mainWindow.on('focus', () => {
     mainWindow.setTitleBarOverlay({
       color: user.titlebar.activeBackground,
-      symbolColor: user.titlebar.activeForeground,
+      symbolColor: user.titlebar.activeForeground
     })
     mainWindow.webContents.executeJavaScript(`document.body.classList.remove('inactive')`)
   })
   mainWindow.on('blur', () => {
     mainWindow.setTitleBarOverlay({
       color: user.titlebar.inactiveBackground,
-      symbolColor: user.titlebar.inactiveForeground,
+      symbolColor: user.titlebar.inactiveForeground
     })
     mainWindow.webContents.executeJavaScript(`document.body.classList.add('inactive')`)
   })
@@ -147,20 +147,20 @@ app.on('window-all-closed', () => {
 })
 
 // new window example arg: new windows url
-ipcMain.handle('open-win', (event, arg) => {
-  const childWindow = new BrowserWindow({
-    webPreferences: {
-      preload,
-    },
-  })
+// ipcMain.handle('open-win', (event, arg) => {
+//   const childWindow = new BrowserWindow({
+//     webPreferences: {
+//       preload,
+//     },
+//   })
 
-  if (app.isPackaged) {
-    childWindow.loadFile(indexHtml, { hash: arg })
-  } else {
-    childWindow.loadURL(`${url}/#${arg}`)
-    // childWindow.webContents.openDevTools({ mode: "undocked", activate: true })
-  }
-})
+//   if (app.isPackaged) {
+//     childWindow.loadFile(indexHtml, { hash: arg })
+//   } else {
+//     childWindow.loadURL(`${url}/#${arg}`)
+//     // childWindow.webContents.openDevTools({ mode: "undocked", activate: true })
+//   }
+// })
 
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.

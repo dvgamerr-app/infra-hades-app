@@ -6,5 +6,5 @@ export default {
   'INIT-CONFIG': initilizeApp,
   'APP-OPEN-MENU': () => {
     log.log('backend')
-  },
+  }
 }
