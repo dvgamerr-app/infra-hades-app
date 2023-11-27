@@ -20,12 +20,14 @@ Promise.all([domReady(), ipcRenderer.invoke('INIT-CONFIG')]).then((config) => {
   if (process.contextIsolated) {
     try {
       contextBridge.exposeInMainWorld('electron', electronAPI)
+      contextBridge.exposeInMainWorld('invoke', ipcRenderer.invoke)
       contextBridge.exposeInMainWorld('api', api)
     } catch (ex) {
       console.error(ex)
     }
   } else {
     window.Electron = electronAPI
+    window.invoke = ipcRenderer.invoke
     window.api = api
   }
   preload.add()

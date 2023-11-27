@@ -5,7 +5,6 @@
   "description": "Instantly manage and monitor Kubernetes from your Desktop.",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
   "license": "MIT",
-  "type": "module",
   "private": true,
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
@@ -44,6 +43,6 @@
     "svelte": "^4.2.7",
     "svelte-preprocess": "^5.1.1",
     "svelte-routing": "^2.9.0",
-    "vite": "^5.0.2"
+    "vite": "^4.5.0"
   }
 }
