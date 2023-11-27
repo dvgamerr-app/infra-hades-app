@@ -1,0 +1,3 @@
+provider: generic
+url: https://auto-updates.touno.io
+updaterCacheDirName: infar-hades-updater
