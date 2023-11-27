@@ -42,7 +42,7 @@
       gap: 0.25em;
       margin: -8px 0 0 -8px;
       width: 100%;
-      height: 31px;
+      height: var(--system-titleBar-height);
 
       > .logo {
         display: flex;

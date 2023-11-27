@@ -221,6 +221,7 @@
 
 <style>
   #desktop {
+    grid-area: panel;
     overflow: auto;
     /* overflow: hidden; */
     /* flex-direction: row; */
