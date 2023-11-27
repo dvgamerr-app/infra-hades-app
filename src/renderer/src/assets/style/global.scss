@@ -14,7 +14,9 @@ body {
   }
 
   #app {
+    overflow: hidden;
     // width: calc(100vw - 2.36em);
+
     height: calc(100vh - 1.18em);
     display: grid;
     grid-template-areas:
@@ -40,7 +42,7 @@ body {
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #e7e9ed;
+    background-color: #2c2e30f2;
     border-radius: 5px;
   }
 

@@ -221,14 +221,11 @@
 
 <style>
   #desktop {
-    flex: 1 1 0%;
-    height: calc(100% + 16px);
-    overflow-y: visible;
+    overflow: auto;
     /* overflow: hidden; */
     /* flex-direction: row; */
     /* grid-template-columns: v-bind(resizable) 4px 1fr;
     justify-items: stretch; */
-    align-items: stretch;
     /*
     .resizer {
       cursor: col-resize;
