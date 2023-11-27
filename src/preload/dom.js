@@ -36,7 +36,7 @@ export const createPreloading = (user) => {
    * https://projects.lukehaas.me/css-loaders
    * https://matejkustec.github.io/SpinThatShit
    */
-  const className = `logo-menu`
+  const className = `preload-ico`
   oStyle.innerHTML = `
 :root {
   --system-titleBar-height: 31px;
@@ -76,7 +76,7 @@ body.inactive {
   height: 20px;
   border-radius: 50%;
   box-shadow: 0 40px 0 var(--user-titlebar-foreground);
-  animation: loader 0.8s ease-in-out alternate infinite;
+  animation: loader 0.6s ease-in-out alternate infinite;
 }
 .${className}:after, .${className}:before {
   content: '';
@@ -134,7 +134,7 @@ body.inactive {
   oDiv.id = 'loading'
   oDiv.className = 'wrap'
   oDiv.innerHTML = `
-<div class="payload-icon ${className}"></div>
+<div class="payload-ico ${className}"></div>
 <div class="payload-msg"><div class="text">Initialize</div></div>
 `
 

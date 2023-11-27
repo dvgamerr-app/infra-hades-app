@@ -9,8 +9,12 @@ Promise.all([domReady(), ipcRenderer.invoke('INIT-CONFIG')]).then((config) => {
   // Custom APIs for renderer
   const api = {
     initConfig: () => ipcRenderer.invoke('INIT-CONFIG'),
-    preloadRemove: () => preload.remove(),
-    preloadInitText: (msg) => (loading.textContent = msg)
+    preloadInit: (msg) => {
+      if (msg) loading.textContent = msg
+      preload.add()
+    },
+    preloadRemove: preload.remove,
+    preloadText: (msg) => (loading.textContent = msg)
   }
 
   if (process.contextIsolated) {
@@ -24,9 +28,6 @@ Promise.all([domReady(), ipcRenderer.invoke('INIT-CONFIG')]).then((config) => {
     window.Electron = electronAPI
     window.api = api
   }
-  // preload.add()
+  preload.add()
+  console.log('init preload.')
 })
-
-// Use `contextBridge` APIs to expose Electron APIs to
-// renderer only if context isolation is enabled, otherwise
-// just add to the DOM global.
