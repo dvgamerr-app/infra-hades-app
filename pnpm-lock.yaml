@@ -64,6 +64,9 @@ devDependencies:
   svelte-preprocess:
     specifier: ^5.1.1
     version: 5.1.1(@babel/core@7.23.3)(postcss@8.4.31)(sass@1.69.5)(svelte@4.2.7)
+  svelte-routing:
+    specifier: ^2.9.0
+    version: 2.9.0
   vite:
     specifier: ^4.5.0
     version: 4.5.0(sass@1.69.5)
@@ -4178,6 +4181,10 @@ packages:
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 4.2.7
+    dev: true
+
+  /svelte-routing@2.9.0:
+    resolution: {integrity: sha512-Ve0OJ78DnjWhOdKeSZGgcyOiaVSu+fZMWNkKqn13+y15vGk/yVjHDYyJLmC1gorQUSIVeqkwQ2LCplfuStKS4w==}
     dev: true
 
   /svelte@4.2.7:

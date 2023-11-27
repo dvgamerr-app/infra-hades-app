@@ -3,7 +3,7 @@ import { join } from 'path'
 import { app, BrowserWindow, shell, ipcMain } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { initilizeApp } from './user-config'
-import icon from '../../resources/icon.png?asset'
+import icon from '../../resources/favicon.png?asset'
 import { name } from '../../package.json'
 import ipcEvent from './event'
 
