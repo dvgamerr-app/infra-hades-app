@@ -1,8 +1,7 @@
-import './assets/style.css'
+import './assets/style/global.scss'
+import './assets/style/fonts.scss'
 import App from './App.svelte'
 
-const app = new App({
+export default new App({
   target: document.getElementById('app')
 })
-
-export default app
