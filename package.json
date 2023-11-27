@@ -5,6 +5,7 @@
   "description": "Instantly manage and monitor Kubernetes from your Desktop.",
   "author": "Kananek T. <info.dvgamer@gmail.com>",
   "license": "MIT",
+  "type": "module",
   "private": true,
   "engines": {
     "node": "^14.18.0 || >=16.0.0"
@@ -23,14 +24,14 @@
   "dependencies": {
     "@electron-toolkit/preload": "^2.0.0",
     "@electron-toolkit/utils": "^2.0.1",
-    "electron-updater": "^6.1.4"
+    "electron-updater": "^6.1.7"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^1.0.1",
     "@electron-toolkit/eslint-config-prettier": "^1.0.1",
-    "@sveltejs/vite-plugin-svelte": "^2.5.3",
-    "electron": "^25.9.6",
-    "electron-builder": "^24.6.4",
+    "@sveltejs/vite-plugin-svelte": "^3.0.1",
+    "electron": "^27.1.2",
+    "electron-builder": "^24.9.1",
     "electron-log": "^5.0.1",
     "electron-settings": "^4.0.2",
     "electron-vite": "^1.0.29",
@@ -43,6 +44,6 @@
     "svelte": "^4.2.7",
     "svelte-preprocess": "^5.1.1",
     "svelte-routing": "^2.9.0",
-    "vite": "^4.5.0"
+    "vite": "^5.0.2"
   }
 }
