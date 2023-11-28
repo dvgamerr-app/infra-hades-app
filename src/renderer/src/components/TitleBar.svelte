@@ -14,7 +14,7 @@
     <button class="menu" on:click={incrementCount}>
       <div class="api-ico preload-ico idle" />
     </button>
-    <div class="logo d-flex align-items-center justify-content-center flex-fill">
+    <div class="logo">
       <img src={icons} height="22" width="22" alt="Infar Hades" />
       <span class="text">Infra.Hades</span>
     </div>

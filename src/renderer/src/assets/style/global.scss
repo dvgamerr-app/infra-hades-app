@@ -1,6 +1,6 @@
 body {
   user-select: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Open Sans', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.85rem;
   font-weight: 400;
   display: grid;
@@ -22,12 +22,6 @@ body {
       'title'
       'panel';
     grid-template-rows: [row1-start] var(--system-titleBar-height);
-
-    .d-center-flex {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
   }
 
   :focus-visible {

@@ -1,21 +1,19 @@
 <script>
-  import { Router, Link, Route } from 'svelte-routing'
+  import { Router, Route, navigate } from 'svelte-routing'
   import TitleBar from './components/TitleBar.svelte'
 
   // Routes
   import Home from './routes/Home.svelte'
+  import Context from './routes/cluster/Contexts.svelte'
+
+  navigate('/context', { replace: true })
 </script>
 
 <TitleBar />
 <div id="desktop">
   <Router>
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/asd">asd</Link>
-    </nav>
-    <div>
-      <Route path="/" component={Home}></Route>
-    </div>
+    <Route path="/" component={Home}></Route>
+    <Route path="/context" component={Context}></Route>
   </Router>
 </div>
 
