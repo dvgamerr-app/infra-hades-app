@@ -17,8 +17,8 @@ dependencies:
 
 devDependencies:
   '@electron-toolkit/eslint-config':
-    specifier: ^1.0.1
-    version: 1.0.1(eslint@8.54.0)
+    specifier: ^1.0.2
+    version: 1.0.2(eslint@8.54.0)
   '@electron-toolkit/eslint-config-prettier':
     specifier: ^1.0.1
     version: 1.0.1(eslint@8.54.0)(prettier@3.1.0)
@@ -318,8 +318,8 @@ packages:
       - '@types/eslint'
     dev: true
 
-  /@electron-toolkit/eslint-config@1.0.1(eslint@8.54.0):
-    resolution: {integrity: sha512-fqXviqkUSk6uFkMVhrMBTzFFxwsWQCF4nB+O79zHKSDj7YGFP5bZA1e2T5iK8KeaG1v8og3tKnDU3OSzgypCDQ==}
+  /@electron-toolkit/eslint-config@1.0.2(eslint@8.54.0):
+    resolution: {integrity: sha512-GJVuMsxBHfVARfmUoSTCHT0e/QfWlVbXcGk3tgoku0ad6tLjydbv2LpvKi02+Sy2WiEz9L9SkGSw090ukT/F0A==}
     peerDependencies:
       eslint: '>= 8.0.0'
     dependencies:
