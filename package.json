@@ -34,7 +34,7 @@
     "electron-log": "^5.1.2",
     "electron-settings": "^4.0.3",
     "electron-vite": "^2.1.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.26.0",
     "eslint-plugin-svelte": "^2.37.0",
     "node-sass": "^9.0.0",
     "prettier": "^3.2.5",
